@@ -10,7 +10,7 @@ Docker image for PyhRF.
 The following commands allows to build and upload the pyhrf Docker image to the cloud.
 
 1. Go to the docker-pyhrf repository: `cd docker-pyhrf`
-2. Build the image: `docker build -t pyhrf/pyhrf .`
+2. Build the image of the master branch: `docker build --build-arg PYHRF_BRANCH=master -t pyhrf/pyhrf .`
 3. Log in to Docker Cloud: `docker login`
 4. Push the image: `docker push pyhrf/pyhrf`
 

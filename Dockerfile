@@ -1,6 +1,9 @@
 FROM ubuntu:latest
 MAINTAINER Jaime Arias "jaime.arias@inria.fr"
 
+# Build PyHRF from a specific branch
+ARG PYHRF_BRANCH=master
+
 # Update the image and install some tools
 RUN apt-get update --fix-missing && \
     apt-get -y dist-upgrade && \
@@ -11,8 +14,9 @@ RUN apt-get update --fix-missing && \
     pip install -U pip setuptools nose coverage coveralls joblib
 
 # Download and Install PyHRF
-RUN git clone https://github.com/pyhrf/pyhrf.git && \
-    cd pyhrf && python setup.py install
+RUN git clone -b $PYHRF_BRANCH https://github.com/pyhrf/pyhrf.git && \
+    cd pyhrf && python setup.py install && \
+    cd .. && rm -rf pyhrf
 
 # Adding script to set the write and read permissions to mounted volumes
 ADD entrypoint.sh /usr/local/bin/
