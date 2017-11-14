@@ -7,8 +7,8 @@ Docker image for PyhRF.
 
 ### Run JDE VEM analysis
 
-The following command runs a PyHRF analysis using a canonical HRF (`--no-estimate-hrf`). For more examples, please refer
-to the PyhRF documentation.
+The following command runs a PyHRF analysis using a canonical HRF (`--no-estimate-hrf`). For more examples of 
+`pyhrf_jde_vem_analysis`, please refer to the PyhRF [documentation](https://pyhrf.github.io/).
 
 ```bash
 docker run --rm \
