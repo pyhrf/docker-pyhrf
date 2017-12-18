@@ -3,7 +3,6 @@ MAINTAINER Jaime Arias "jaime.arias@inria.fr"
 
 # Build PyHRF from a specific branch
 ARG PYHRF_BRANCH=master
-ARG DEPLOY=false
 
 # Update the image and install some tools
 RUN apt-get update --fix-missing && \
@@ -17,7 +16,7 @@ RUN apt-get update --fix-missing && \
 # Download and Install PyHRF
 RUN git clone -b $PYHRF_BRANCH https://github.com/pyhrf/pyhrf.git && \
     cd pyhrf && python setup.py install && \
-    if [ $DEPLOY = true ] ; then python setup.py sdist bdist_wheel && cp -r dist / ; fi && \
+    python setup.py sdist bdist_wheel && cp -r dist / && \
     cd .. && rm -rf pyhrf
 
 # Adding script to set the write and read permissions to mounted volumes
