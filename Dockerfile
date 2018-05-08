@@ -1,5 +1,5 @@
-FROM ubuntu:latest
-MAINTAINER Jaime Arias "jaime.arias@inria.fr"
+FROM ubuntu:16.04
+LABEL maintainer="arias@lipn.univ-paris13.fr"
 
 # Build PyHRF from a specific branch
 ARG PYHRF_BRANCH=master
